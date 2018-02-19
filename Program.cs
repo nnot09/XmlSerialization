@@ -23,8 +23,9 @@ namespace XmlSerialization
 
             // Deserialize object and print output
             PlayerXml playerFromXml = PlayerXml.LoadXml();
-
-            Console.WriteLine(string.Format("Name: {0}\nHealth: {1}\nAttackPoints: {2}\n", playerFromXml.PlayerName, playerFromXml.BaseHealth, playerFromXml.AttackPoints));
+        
+            if ( playerFromXml != null )
+                Console.WriteLine(string.Format("Name: {0}\nHealth: {1}\nAttackPoints: {2}\n", playerFromXml.PlayerName, playerFromXml.BaseHealth, playerFromXml.AttackPoints));
         }
     }
 }
