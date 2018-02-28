@@ -32,15 +32,14 @@ namespace XmlSerialization
 
         public static PlayerXml LoadXml()
         {
-            PlayerXml deserialized;
-
+            if (!File.Exists("players.xml"))
+                return null;
+                
             XmlSerializer serializer = new XmlSerializer(typeof(PlayerXml));
             using (FileStream stream = new FileStream("players.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                deserialized = (PlayerXml)serializer.Deserialize(stream);
+                return (PlayerXml)serializer.Deserialize(stream);
             }
-
-            return deserialized;
         }
     }
 }
